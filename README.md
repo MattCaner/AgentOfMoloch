@@ -2,7 +2,7 @@
 
 ## Czym jest AoM?
 
-AoM to mały, dość prosty (ale, jak każda machina Molocha wredny, bzzzt hehehe!) bot służący do grania w fantastyczną grę fabularną, jaką jest [Neuroshima 1.5], stworzoną przez Portal Games, w nadziei, że ułatwi on grę moim znajomym fanom tego RPG, którzy w obecnych czasach epidemii są zmuszeni do przerzucenia swoich sesji na Discorda.
+AoM to mały, dość prosty (ale, jak każda machina Molocha wredny, bzzzt hehehe!) bot służący do grania w fantastyczną grę fabularną, jaką jest **Neuroshima 1.5**, stworzoną przez Portal Games, w nadziei, że ułatwi on grę moim znajomym fanom tego RPG, którzy w obecnych czasach epidemii są zmuszeni do przerzucenia swoich sesji na Discorda.
 
 ## Rozwój bota
 
