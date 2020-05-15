@@ -1,0 +1,45 @@
+{
+    "g":{
+        "name": "Głowa",
+        "severity": [
+            [], [], [], []
+        ]
+    },
+
+    "t":{
+        "name": "Tułów",
+        "severity": [
+            [], [], [], []
+        ]
+    },
+
+    "rl":{
+        "name": "Ręka lewa",
+        "severity": [
+            [], [], [], []
+        ]
+    },
+
+    "rp":{
+        "name": "Ręka prawa",
+        "severity": [
+            [], [], [], []
+        ]
+    },  
+
+    "nl":{
+        "name": "Noga lewa",
+        "severity": [
+            [], [], [], []
+        ]
+    },
+
+    "np":{
+        "name": "Noga prawa",
+        "severity": [
+            [], [], [], []
+        ]
+    }
+
+
+}

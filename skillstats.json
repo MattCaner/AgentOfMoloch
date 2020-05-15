@@ -1,0 +1,76 @@
+{
+    "Bijatyka": "Zręczność",
+    "Broń ręczna": "Zręczność",
+    "Rzucanie": "Zręczność",
+
+    "Samochód": "Zręczność",
+    "Motocykl": "Zręczność",
+    "Ciężarówka": "Zręczność",
+
+    "Kradzież kieszonkowa": "Zręczność",
+    "Otwieranie zamków": "Zręczność",
+    "Zwinne dłonie": "Zręczność",
+
+    "Pistolety": "Zręczność",
+    "Karabiny": "Zręczność",
+    "Broń maszynowa": "Zręczność",
+
+    "Łuk": "Zręczność",
+    "Kusza": "Zręczność",
+    "Proca": "Zręczność",
+
+    "Wyczucie kierunku": "Percepcja",
+    "Przygotowywanie pułapek": "Percepcja",
+    "Tropienie": "Percepcja",
+
+    "Nasłuchiwanie": "Percepcja",
+    "Wypatrywanie": "Percepcja",
+    "Czujność": "Percepcja",
+
+    "Skradanie się": "Percepcja",
+    "Ukrywanie się": "Percepcja",
+    "Maskowanie": "Percepcja",
+
+    "Łowiectwo": "Percepcja",
+    "Znajomość terenu": "Percepcja",
+    "Zdobywanie wody": "Percepcja",
+
+    "Zastraszanie": "Charakter",
+    "Perswazja": "Charakter",
+    "Zdolności przywódcze": "Charakter",
+
+    "Postrzeganie emocji": "Charakter",
+    "Blef": "Charakter",
+    "Opieka nad zwierzętami": "Charakter",
+
+    "Odporność na ból": "Charakter",
+    "Niezłomność": "Charakter",
+    "Morale": "Charakter",
+
+    "Pierwsza pomoc": "Spryt",
+    "Leczenie ran": "Spryt",
+    "Leczenie chorób": "Spryt",
+
+    "Mechanika": "Spryt",
+    "Elektronika": "Spryt",
+    "Komputery": "Spryt",
+
+    "Wiedza ogólna": "Spryt",
+    
+    "Maszyny ciężkie": "Spryt",
+    "Wozy bojowe": "Spryt",
+    "Kutry": "Spryt",
+
+    "Rusznikarstwo": "Spryt",
+    "Wyrzutnie": "Spryt",
+    "Materiały wybuchowe": "Spryt",
+
+    "Kondycja": "Budowa",
+    "Pływanie": "Budowa",
+    "Wspinaczka": "Budowa",
+
+    "Jazda konna": "Budowa",
+    "Powożenie": "Budowa",
+    "Ujeżdżanie": "Budowa"
+
+}
