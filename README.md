@@ -42,4 +42,4 @@ Autorami gry fabularnej Neuroshima są Ignacy Trzeciczek, Marcin Blacha, Michał
 
 ## Chcesz pomóc?
 
-Uważasz, że idea tworzenia bota do gry Neuroshima jest szczytna, a dysponujesz nadmiarem wolnego czasu i wiedzą na temat działania node.js? Bardzo chętnie nawiążę z Tobą współpracę! Chcesz brać udział w dalszym rozwoju bota jako tester? Ciebie też potrzebuję! Jeśli chcesz brać udział w tworzeniu AoM, napisz do mnie na adres maciejtrzcinski\[at\]gmail.com!
+Uważasz, że idea tworzenia bota do gry Neuroshima jest szczytna, a dysponujesz nadmiarem wolnego czasu i wiedzą na temat działania node.js? Bardzo chętnie nawiążę z Tobą współpracę! Chcesz brać udział w dalszym rozwoju bota jako tester? Ciebie też potrzebuję! Jeśli chcesz brać udział w tworzeniu AoM, napisz do mnie na adres maciejftrzcinski \[at\] gmail.com!
