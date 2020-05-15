@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Agent Molocha, dla wygody twoich sesji neuro!",
     "main": "bot.js",
-    "author": "Maciej Trzciński",
+    "author": "Maciej Trzciński a.k.a. Count Surt of Thunder's Edge",
     "deprendencies": {},
     "dependencies": {
         "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
