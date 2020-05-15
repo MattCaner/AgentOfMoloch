@@ -43,7 +43,7 @@ AoM to mały, dość prosty (ale, jak każda machina Molocha wredny, bzzzt heheh
 
 ## Informacje o prawach autorskich
 
-Autorami gry fabularnej Neuroshima są Ignacy Trzeciczek, Marcin Blacha, Michał Orach i Marcin Baryłka. Jej wydawcą jest wydawnictwo **Portal Games**, które można znaleźć pod tym linkiem: [https://bit.ly/2Z6CCqI], a ten bot jest tworzony za ich zgodą. Kod, nie wliczając w to modułu Discorda oraz pozostałych modułów potrzebnych do działania tej aplikacji w node.js, jest mojego autorstwa.
+Autorami gry fabularnej Neuroshima są Ignacy Trzewiczek, Marcin Blacha, Michał Orach i Marcin Baryłka. Jej wydawcą jest wydawnictwo **Portal Games**, które można znaleźć pod tym linkiem: [https://bit.ly/2Z6CCqI], a ten bot jest tworzony za ich zgodą. Kod, nie wliczając w to modułu Discorda oraz pozostałych modułów potrzebnych do działania tej aplikacji w node.js, jest mojego autorstwa.
 
 ## Chcesz pomóc?
 
