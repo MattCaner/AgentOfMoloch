@@ -1,7 +1,4 @@
 # AgentOfMoloch
-<p align="center">
-  <img src="https://raw.githubusercontent.com/MattCaner/AgentOfMoloch/master/aom_ico.png?raw=true" alt="Art by Likopinina"/>
-</p>
 
 ## Czym jest AoM?
 
@@ -46,8 +43,12 @@ AoM to mały, dość prosty (ale, jak każda machina Molocha wredny, bzzzt heheh
 
 ## Informacje o prawach autorskich
 
-Autorami gry fabularnej Neuroshima są Ignacy Trzewiczek, Marcin Blacha, Michał Orach i Marcin Baryłka. Jej wydawcą jest wydawnictwo **Portal Games**, które można znaleźć pod tym linkiem: [https://bit.ly/2Z6CCqI], a ten bot jest tworzony za ich zgodą. Kod, nie wliczając w to modułu Discorda oraz pozostałych modułów potrzebnych do działania tej aplikacji w node.js, jest mojego autorstwa.
+Autorami gry fabularnej Neuroshima są Ignacy Trzewiczek, Marcin Blacha, Michał Orach i Marcin Baryłka. Jej wydawcą jest wydawnictwo **Portal Games**, które można znaleźć pod tym linkiem: [https://bit.ly/2Z6CCqI], a ten bot jest tworzony za ich zgodą. Kod, nie wliczając w to modułu Discorda oraz pozostałych modułów potrzebnych do działania tej aplikacji w node.js, jest mojego autorstwa. Autorem grafiki jest 
 
 ## Chcesz pomóc?
 
 Uważasz, że idea tworzenia bota do gry Neuroshima jest szczytna, a dysponujesz nadmiarem wolnego czasu i wiedzą na temat działania node.js? Bardzo chętnie nawiążę z Tobą współpracę! Chcesz brać udział w dalszym rozwoju bota jako tester? Ciebie też potrzebuję! Jeśli chcesz brać udział w tworzeniu AoM, napisz do mnie na adres maciejftrzcinski \[at\] gmail.com!
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MattCaner/AgentOfMoloch/master/aom_ico.png?raw=true" alt="Art by Likopinina"/>
+</p>
