@@ -49,6 +49,8 @@ Autorami gry fabularnej Neuroshima są Ignacy Trzewiczek, Marcin Blacha, Michał
 
 Uważasz, że idea tworzenia bota do gry Neuroshima jest szczytna, a dysponujesz nadmiarem wolnego czasu i wiedzą na temat działania node.js? Bardzo chętnie nawiążę z Tobą współpracę! Chcesz brać udział w dalszym rozwoju bota jako tester? Ciebie też potrzebuję! Jeśli chcesz brać udział w tworzeniu AoM, napisz do mnie na adres maciejftrzcinski \[at\] gmail.com!
 
+## Miłych podróży po pustkowiach!
+
 *Czasem jest zdecydowany i zajmuje określony cel w ciągu kilku godzin. Innym razem ofensywa trwa, giną kolejni żołnierze, lecz Moloch nie posuwa się do przodu. Bywa niezdarny i bywa bezwględnie dokładny. Jest wrogiem, z jakim ludzie nie walczyli nigdy wcześniej. (...) Nie mówiłem, że (...) to wszystko nagrywa? No to już wiesz. Każda bitwa jest archiwizowana, a potem, jak sądzę - analizowana.*
 
 Neuroshima, strony 266-267
