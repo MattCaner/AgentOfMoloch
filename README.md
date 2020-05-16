@@ -1,6 +1,7 @@
 # AgentOfMoloch
-
-![alt text](https://raw.githubusercontent.com/MattCaner/AgentOfMoloch/master/aom_ico.png "Art by Likopinina")
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MattCaner/AgentOfMoloch/master/aom_ico.png?raw=true" alt="Art by Likopinina"/>
+</p>
 
 ## Czym jest AoM?
 
