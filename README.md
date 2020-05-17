@@ -51,7 +51,7 @@ Uważasz, że idea tworzenia bota do gry Neuroshima jest szczytna, a dysponujesz
 
 ## Miłych podróży po pustkowiach!
 
-*Czasem jest zdecydowany i zajmuje określony cel w ciągu kilku godzin. Innym razem ofensywa trwa, giną kolejni żołnierze, lecz Moloch nie posuwa się do przodu. Bywa niezdarny i bywa bezwględnie dokładny. Jest wrogiem, z jakim ludzie nie walczyli nigdy wcześniej. (...) Nie mówiłem, że (...) to wszystko nagrywa? No to już wiesz. Każda bitwa jest archiwizowana, a potem, jak sądzę - analizowana.*
+*Czasem jest zdecydowany i zajmuje określony cel w ciągu kilku godzin. Innym razem ofensywa trwa, giną kolejni żołnierze, lecz Moloch nie posuwa się do przodu. Bywa niezdarny i bywa bezwględnie dokładny. Jest wrogiem, z jakim ludzie nie walczyli nigdy wcześniej. (...) Nie mówiłem, że (...) wszystko nagrywa? No to już wiesz. Każda bitwa jest archiwizowana, a potem, jak sądzę - analizowana.*
 
 Neuroshima, strony 266-267
 
