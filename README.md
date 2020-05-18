@@ -19,10 +19,11 @@ AoM to mały, dość prosty (ale, jak każda machina Molocha wredny, bzzzt heheh
 * Ręczne zmienianie ran
 * Leczenie ran
 * Sprawdzanie statystyk
+* Wykonywanie rzutów na strzały z uwzględnieniem celowania w 1, 2 i 3 segmentach inicjatywy, a także miejsca trafienia i szans zacięcia się broni
 
 ### Planowane funkcje bota (w najbliższym czasie):
 
-* Wykonywanie rzutów na strzały z uwzględnieniem celowania w 1, 2 i 3 segmentach inicjatywy, a także miejsca trafienia i szans zacięcia się broni
+* ~~Wykonywanie rzutów na strzały z uwzględnieniem celowania w 1, 2 i 3 segmentach inicjatywy, a także miejsca trafienia i szans zacięcia się broni~~ ZROBIONE!
 * Wypisywanie akcji dostępnych w 1, 2, 3 segmentach inicjatywy
 * Ręczne zmienianie współczynników postaci
 * Awansowanie postaci
