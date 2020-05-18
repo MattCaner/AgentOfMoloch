@@ -6,7 +6,6 @@ var diff_names = require('./difficulty_levels.json')
 var wounds_template = require('./wounds_template.json')
 var wounds_names = require('./wounds_names.json')
 const fs = require('fs');
-// Configure logger settings
 
 
 function getRandomInt(min, max) {
@@ -111,6 +110,160 @@ function getHeroWoundDifficulty(id){
     });
 
     return sum_wound_percent
+}
+
+function make_shot(userID, skill_name, dice_number, jam_treshold, difficulty_modifier, consider_wounds_difficulty, print_warnings){
+    var heroStats = findMatchingHero(userID)
+    var messageStr = ""
+
+    if(heroStats == undefined){
+        if(print_warnings==true) messageStr = ">>> Nie można znaleźć twojej postaci! Czy na pewno ją dodał(a/e)ś?"
+    }
+    else{
+        var level = heroStats.data.skills[skill_name]
+        if(level == undefined) level = 0
+        else level = parseInt(level)
+
+        var statName = skilltable[skill_name]
+
+
+        if(statName==undefined){
+            messageStr = ">>> >>> BZZZT! BZZZ! ERROR! Molochowe oprogramowanie nie rozpoznało tej zdolności!\nSprawdź, czy jest wpisana poprawnie."
+            var toRet = {};
+            toRet.messageStr += messageStr;
+        }
+        else{
+            var stat = heroStats.data.stats[statName]
+            messageStr = ">>> **" + heroStats.data.meta.Imię + "** oddaje strzał, używając do tego zdolności " + skill_name +" (poziom zdolności: " + level + ", poziom cechy " +statName +": " + stat + ")\n"
+            
+            var finaldie = 0
+
+            if(dice_number==1){
+                finaldie = getRandomInt(1,20)
+                messageStr += 'Rzut 1k20: (**'
+                messageStr += finaldie
+                messageStr += '**'
+                messageStr += '), '
+            }
+            if(dice_number==2){
+                var die1 = getRandomInt(1,20)
+                var die2 = getRandomInt(1,20)
+        
+                var dices = []
+                dices[0] = die1
+                dices[1] = die2
+
+                var mindie = indexOfMin(dices)
+                var maxdie = indexOfMax(dices)
+
+                messageStr += 'Rzut 2k20: (**'
+                messageStr += dices[mindie]
+                messageStr += '**,~~'
+                messageStr += dices[maxdie]
+                messageStr += '~~), '
+
+                finaldie = dices[mindie]
+            }
+            if(dice_number==3){
+                var die1 = getRandomInt(1,20)
+                var die2 = getRandomInt(1,20)
+                var die3 = getRandomInt(1,20)
+        
+                var dices = []
+                dices[0] = die1
+                dices[1] = die2
+                dices[2] = die3
+
+                var maxdie = indexOfMax(dices)
+                var mindie = indexOfMin(dices)
+                var mediandie = indexOfMiddle(dices)
+
+                messageStr += 'Rzut 3k20: (**'
+                messageStr += dices[mindie]
+                messageStr += '**,~~'
+                messageStr += dices[mediandie]
+                messageStr += ','
+                messageStr += dices[maxdie]
+                messageStr += '~~), '
+
+                finaldie = dices[mindie]
+            }
+
+            finaldie -= level
+            if(finaldie<1) finaldie = 1
+
+            messageStr += "wynik po zmniejszeniu zdolnością: **" + finaldie + "**\n"
+
+
+            if(stat+2 >= finaldie) finaldifficulty = 0     
+            if(stat >= finaldie) finaldifficulty = 1   
+            if(stat-2 >= finaldie) finaldifficulty = 2
+            if(stat-5 >= finaldie) finaldifficulty = 3   
+            if(stat-8 >= finaldie) finaldifficulty = 4  
+            if(stat-11 >= finaldie) finaldifficulty = 5  
+            if(stat-15 >= finaldie) finaldifficulty = 6  
+            if(stat-20 >= finaldie) finaldifficulty = 7    
+            if(stat-24 >= finaldie) finaldifficulty = 8
+
+            //jam roll:
+            var jamroll = getRandomInt(1,20)
+            messageStr += "Rzut na zacięcie: " + jamroll + "/" + jam_treshold + "."
+            
+            if(jamroll>=jam_treshold){
+                messageStr += " Broń **zacina się** "
+                var jamseverityroll = getRandomInt(1,20)
+                messageStr += "(rzut na poziom zacięcia: " + jamseverityroll + ")!\n"
+                if(jamseverityroll < 11){
+                    messageStr += "Broń zacięła się, ale bez obaw, możesz naprawić ją w ciągu 1 tury.\n"
+                }
+                if(jamseverityroll > 10 && jamseverityroll < 19){
+                    messageStr += "Coś się zepsuło, i to poważnie! Broń wymaga wnikliwej naprawy, zapomnij o strzelaniu z niej w tym straciu.\n"
+                }
+                if( jamseverityroll > 18){
+                    messageStr += "Zapomnij o używaniu tej spluwy, chyba, że znajdziesz warsztat rusznikarski.\n"
+                }
+            }
+            else{
+                messageStr += " Broń nie zacina się.\n"
+            }
+
+            
+            messageStr += heroStats.data.meta.Imię
+            if(finaldifficulty<0){
+                messageStr += " nie zdaje testu o **żadnym poziomie trudności**.\n"
+            }
+            else{
+                messageStr += " zdaje test na poziomie **" + diff_names[finaldifficulty] + "** i prostszych!\n"
+            }
+
+            var placeRoll = getRandomInt(1,20)
+            messageStr += "Rzut na miejsce trafienia: " + placeRoll + " ("
+            if(placeRoll < 3){
+                messageStr += "głowa"
+            }
+            if(placeRoll > 2 && placeRoll < 5){
+                messageStr += "ręka prawa"
+            }
+            if(placeRoll > 4 && placeRoll < 7){
+                messageStr += "ręka lewa"
+            }
+            if(placeRoll > 6 && placeRoll < 16){
+                messageStr += "tułów"
+            }
+            if(placeRoll > 15 && placeRoll < 18){
+                messageStr += "noga prawa"
+            }
+            if(placeRoll > 17){
+                messageStr += "noga lewa"
+            }
+
+            messageStr += ")\n"
+
+
+        }
+    }
+
+    return messageStr
 }
 
 function make_test(userID, skill_name, dice_number, difficulty_modifier, consider_wounds_difficulty, print_final, print_warnings){
@@ -418,6 +571,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 catch(e){
                     messageStr = ">>> BZZZT! BZZZ! ERROR! Molochowe oprogramowanie miało problem z parsowaniem tej postaci!\n"
                     messageStr += "Opis błędu: `" + e + "`\n"
+                    messageStr += "Nie wiesz, jak stworzyć bohatera? Użyj kreatora postaci na stronie <http://erhalis.net/aom/>!"
                 }
                 
                 bot.sendMessage({
@@ -435,6 +589,44 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }); 
 
             break
+
+            case 'strzał':
+
+                var messageStr = ">>>"
+
+                if(args.length != 4 && args.length != 5){
+                    messageStr = ">>>BZZZT! BZZZ! ERROR! Zła liczba argumentów!\nWpisz $pomoc strzał, żeby dowiedzieć się, jak używać komendy."
+                }
+                else{
+                    var segments = parseInt(args[1])
+                    var jam = parseInt(args[2])
+
+                    if(isNaN(segments) || isNaN(jam)){
+                        messageStr = ">>>BZZZT! BZZZ! ERROR! Argumenty podane w nieprawidłowy sposób!\nWpisz $pomoc strzał, żeby dowiedzieć się, jak używać komendy."
+                    }else{
+                        if(segments < 1 || segments > 3 || jam > 20 || jam < 1){
+                            messageStr = ">>>BZZZT! BZZZ! ERROR! Złe wartości ilości segmentów lub rzutu na zacięcie! Podaj wartości z dopuszczlnego zakresu!\nWpisz $pomoc strzał, żeby dowiedzieć się, jak używać komendy."
+                        }else{
+                            var skill_name = ""
+                            if (args.length == 4){
+                                skill_name = args[3]
+                            }
+                            if(args.length == 5){
+                                skill_name = "" + args[3] + " " + args[4]
+                            }    
+                            messageStr = make_shot(userID,skill_name,segments,jam,0,false,true)
+                        }
+
+                    }
+
+                }                
+
+                bot.sendMessage({
+                    to: channelID,
+                    message: messageStr
+                }); 
+                
+            break;
 
             case 'staty':
                 var heroStats = findMatchingHero(userID)
@@ -857,14 +1049,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 if(message.length<7){
                     msgStr = ">>> Podstawowe komendy:\n"
                     msgStr += "**$rzut3** - po prostu wykonaj rzut 3k20\n"
-                    msgStr += "**$bohater** *<statystyki bohatera w formacie json>* - dodaj bohatera w formacie JSON. Jeśli masz już bohatera, zostanie on zastąpiony, więc uważaj!\n"
+                    msgStr += "**$rzut1** - po prostu wykonaj rzut 1k20\n"
+                    msgStr += "**$bohater** *<statystyki bohatera w formacie json>* - dodaj bohatera w formacie JSON. Jeśli masz już bohatera, zostanie on zastąpiony, więc uważaj! Jeśli nie wiesz, jak należy stworzyć bohatera, skorzystaj z kreatora postaci na stronie www bota.\n"
                     msgStr += "**$staty** - sprawdź swoje statystyki (wymaga załadowanego bohatera)\n"
                     msgStr += "**$stan** - sprawdź stan (rany, choroby, utrudnienia) swojego bohatera\n"
                     msgStr += "**$test** *<zdolność>* - przetestuj zdolność używając 3k20 (wymaga załadowanego bohatera)\n"
                     msgStr += "**$rana** *<g/t/rl/rp/nl/np> <d/l/c/k>* - zadaj ranę w określonym miejscu (wymaga załadowanego bohatera)\n"
                     msgStr += "**$leczenie**  *[w/g/t/rl/rp/nl/np = w] [ilość = 5]* - ulecz określone procenty ran określonym miejscu\n"
+                    msgStr += "**$strzał** *<segmenty> <rzut na zacięcie> <zdolność>* - wykonaj strzał w określonej ilości segmentów z określonym rzutem na zacięcie, używając wybranej zdolności.\n"
                     msgStr += "**$pomoc** *[komenda]* - wypisz pomoc ogólną lub do sprecyzowanej komendy\n"
-                    msgStr += "\nSprawdź <http://erhalis.net/aom/index.html>, by dowiedzieć się jeszcze więcej!"
+                    msgStr += "\nSprawdź <http://erhalis.net/aom/>, by dowiedzieć się jeszcze więcej!"
     
                 }
                 else{
@@ -880,11 +1074,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         case 'bohater':
                             msgStr += "Użycie: **bohater** *<format bohatera>*\n"
                             msgStr += "Tworzy nowego bohatera przyporządkowanego do gracza lub zastępuje starego, jeśli jakiś jest. Jego format musi być poprawnie stworzonym formatem bohatera.\n"
-                            msgStr += "Przykładowy format bohatera:\n"
-                            msgStr += "```"
-                            msgStr += "{\n\t\"meta\":\n\t{\n\t\t\"Imię\": \"Twoje Imię\",\n\t\t\"Pochodzenie\": \"Twoje pochodzenie\",\n\t\t\"Profesja\": \"Twoja profesja\"\n\t},\n\t\"stats\":\n\t {\n\t\t\"Zręczność\": 12,\n\t\t\"Percepcja\": 12,\n\t\t\"Charakter\": 12,\n\t\t\"Spryt\": 12, \n\t\t\"Budowa\": 12\n\t}, \n\t\"skills\": \n\t{\n\t\t\"Zdolność jeden\": 3, \n\t\t\"Zdolność dwa\": 2, \n\t\t\"Zdolność trzy\": 4\n\t}\n}"
-                            msgStr += "```"
-                            msgStr += "Zdolności powinny być pisanymi z dużej litery nazwami zdolności występującymi w Neuroshimie. Zamiast przykładowych wartości współczynników, możesz oczywiście podać swoje własne."
+                            msgStr += "Najlepiej stworzyć format bohatera używając do tego kreatora postaci na stronie <http://erhalis.net/aom/>. Tam, w zakładce kreator postaci, znajdziesz narzędzie, które pozwoli ci w łatwy sposób wybrać statystyki twojej postaci i automatycznie wygenerować komendę, która stworzy twoją postać.\nJeśli natomiast jesteś żyjącym w betonowym bunkrze programistą, który przed wojną przyczynił się do stworzenia molocha i za bardzo cię korci, by nie stworzyć formatu samodzielnie, zajrzyj do dokumentacji na stronie www, by zobaczyć, jak się tworzy format bohatera."
                         break
                         case 'staty':
                             msgStr += "Użycie: **staty**\n"
@@ -910,6 +1100,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             msgStr += "Leczy bohatera z ran w określonym miejscu (**w**szędzie, **g**łowa, **t**ułów, **r**ęka **l**ewa, **r**ęka prawa, **n**oga **l**ewa, **n**oga **p**rawae) o określony procent\n"
                             msgStr += "Przykład:\n*leczenie t 15*: ulecz rany na tułowiu o 15%\n"
                         break
+                        case 'strzał':
+                            msgStr += "Użycie: **strzał** *<segmenty> <rzut na zacięcie> <zdolność>*\n"
+                            msgStr += "Oddaj strzał, używając na to określonej liczby segmentów (od 1 do 3), wpisując minimalny wynik, który spowoduje zacięcie oraz zdolność, która jest testowana przy strzale.\n"
+                            msgStr += "Przykład:\n*strzał 2 18 Pistolety*: strzel z pistoletu w dwóch segmentach inicjatywy, gdzie rzut twojej broni na zacięcie wynosi 18-20.\n"
 
                     }
 
